@@ -1,0 +1,22 @@
+[core]
+	pager = less -erX
+
+[user]
+	name = Konstantin Zalyan
+	email = k@zalyan.net
+
+[alias]
+	l = log --oneline
+
+[color]
+	ui = auto
+	branch = auto
+	status = auto
+	diff = auto
+
+
+[instaweb]
+	local = true
+	httpd = webrick
+	port = 1234
+
