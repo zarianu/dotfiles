@@ -2,7 +2,8 @@ if [ -e .profile ] ; then source .profile ; fi
 
 ## completions
 #
-compctl -f -k "( `cat .ssh/config| grep "^Host " | cut -f 2 -d ' ' | tail -n +2`)" ssh scp
+# compctl -f -k "( `cat .ssh/config| grep "^Host " | cut -f 2 -d ' ' | tail -n +2`)" ssh scp
+compctl -f -k "( `cat ~/.ssh/config| grep "^Host " | grep -v '*' | cut -f 2 -d ' '`)" ssh scp
 
 ## prompts
 #
@@ -26,7 +27,6 @@ setopt INC_APPEND_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_REDUCE_BLANKS \
 
 ## searches DNS nms.local zone for pattern
 #
-alias d=dns_search
 dns_search() {
 	grep -i $1 /etc/namedb/master/nms.local.db
 }
@@ -36,6 +36,12 @@ alias ls='ls -G'
 alias p=ping
 alias s=ssh
 alias t=tmux
+
+if [[ $(hostname -s) = "buku" ]]; then
+	alias d=dot
+else
+	alias d=dns_search
+fi
 
 ## generate random password
 #

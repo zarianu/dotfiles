@@ -23,8 +23,12 @@ if [ $# = 1 ]; then
 					printf "%s\t\t%s\t\t%s\n" $src $dest $desc
 					;;
 				copy)
-					cmd='cp '$src' '$dest
+					cmd='cp -v '$src' '$dest
 					sh -c $cmd
+					;;
+				*)
+					echo "Usage: dot list|copy"
+					break
 					;;
 		esac
 	done
