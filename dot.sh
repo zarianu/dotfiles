@@ -27,13 +27,13 @@ if [ $# = 1 ]; then
 					sh -c $cmd
 					;;
 				*)
-					echo "Usage: dot list|copy"
+					echo "Usage: $(basename $0) list|copy"
 					break
 					;;
 		esac
 	done
 	IFS=${OLD_IFS}
 else
-	echo "Usage: dot list|copy"
+	echo "Usage: $(basename $0) list|copy"
 fi
 

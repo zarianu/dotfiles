@@ -7,7 +7,7 @@ compctl -f -k "( `cat ~/.ssh/config| grep "^Host " | grep -v '*' | cut -f 2 -d '
 
 ## prompts
 #
-RPROMPT='%F{yellow}%~%f'
+RPROMPT='%(?.%F{green}.%F{red})%? %F{yellow}%~%f'
 if [[ $(hostname -s) = "kost-mac" || $(hostname -s) = "buku" ]]; then
 	PROMPT='[%n@%F{green}%m%f]%# '
 else
